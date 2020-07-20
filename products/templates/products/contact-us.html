@@ -1,11 +1,32 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
+
+         <!-- Breadcrumbs Area Start -->
+        <div class="breadcrumbs-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="breadcrumb-single">
+                            <ul class="breadcrumbs">
+                                <li><a href="{% url 'home' %}" title="Return to Home">
+                                    Home
+                                </a></li>
+                                <li>
+                                    <span>></span>
+                                </li>
+                                <li style="color:white;">CONTACT US</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!--Header Area End-->
 		<!-- Map Area Start -->
-		<!-- <div class="map-area">
-			<div id="googleMap" style="width:100%;height:445px;"></div>
-		</div> -->
+		<div class="map-area">
+		<div id="googleMap" style="width:100%;height:445px;;"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2283.5208840580713!2d80.8098850561458!3d25.9398219322952!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db5d8d6bd8d31%3A0x8b01517171bcbc1d!2sAashirwad%20Jewellery%20Collection!5e0!3m2!1sen!2sin!4v1595142505799!5m2!1sen!2sin" width="100%" height="445px" frameborder="0" style="border:1px;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></div>
+		</div>
 		<!-- Map Area End -->
 		<!-- Address Information Area Start -->
 
@@ -16,7 +37,7 @@
                 {% for message in messages %}
                 <div class="alert alert-success alert-dismissible">
                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                    <h6 {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h6>
+                    <h3 align="center" {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h3>
                 </div>
                     {% endfor %}
                 </p>

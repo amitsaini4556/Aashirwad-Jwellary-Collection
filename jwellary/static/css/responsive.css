@@ -321,7 +321,7 @@ button.price-offer {
   left: 10px;
 }
 .section-title::after {
-  background: rgba(0, 0, 0, 0) url("https://d29u17ylf1ylz9.cloudfront.net/taj-preview/taj/css/images/mobile-title.png") no-repeat scroll 0 0;
+  background: rgba(0, 0, 0, 0) url("") no-repeat scroll 0 0;
   margin-left: -130px;
   width: 260px;
 }

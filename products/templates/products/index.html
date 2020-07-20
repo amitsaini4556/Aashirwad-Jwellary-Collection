@@ -75,9 +75,9 @@
                             </div>
                             <div class="col-50 padding-left">
                                 <div class="single-top-product">
-                                    <img style="height:485px;"src="{% static 'img/new-product/2.jpg' %}" alt="">
+                                    <img src="{% static 'img/new-product/2.jpg' %}" alt="">
                                     <div class="overlay-content">
-                                        <a href="{% url 'jewellary' %}"><h3>Jewellary Sets</h3></a>
+                                        <a href="{% url 'jewellary' %}"><h3>Necklace</h3></a>
                                         <a href="{% url 'jewellary' %}" class="btn-product">view more</a>
                                     </div>
                                 </div>
@@ -106,8 +106,8 @@
                                 <div class="single-new-trend">
                                     <a href="{% url 'singleproduct' i.type i.id %}"><img src="{{ i.image.url }}" alt=""></a>
                                     <div class="overlay-content">
-                                        <a href="shop.html"><h2>{{ i.price }}</h2></a>
-                                        <a href="{% url 'singleproduct' i.type i.id %}" class="btn-small">Now</a>
+                                        <a ><h2 style="color:white;"><i class="fa fa-inr" aria-hidden="true"></i>{{ i.price }}</h2></a>
+                                        <a href="{% url 'singleproduct' i.type i.id %}" class="btn-small">New</a>
                                         <div class="product-action">
                                             <ul>
                                                 <!--<li>
@@ -118,7 +118,7 @@
                                                 </li>-->
                                             </ul>
                                         </div>
-                                        <a href="shop.html">
+                                        <a >
                                             <h4>{{ i.name }}</h4>
                                         </a>
                                         <!--<div class="pro-rating">
@@ -132,7 +132,29 @@
                                 </div>
                             </div>
                             {% endfor %}
+                            <div style="padding-right:100px;padding-top: 150px;" class="owl-item">
+                            <div class="col-md-4">
+
+                                    <a href=""><img src="" alt=""></a>
+
+
+
+                                        <a >
+                                            <h1><a href="{% url 'newcollection' %}" class="btn-small">View More</a></h1>
+                                        </a>
+                                        <!--<div class="pro-rating">
+                                            <i class="fa fa-star color"></i>
+                                            <i class="fa fa-star color"></i>
+                                            <i class="fa fa-star color"></i>
+                                            <i class="fa fa-star color"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>-->
+                                        </div>
+
+
+                            </div>
                         </div>
+                        <i style="text-align: center;width: 100%;" class="fa fa-ellipsis-h fa-3x" aria-hidden="true"></i>
                     </div>
 		        </div>
 		    </div>
@@ -145,7 +167,7 @@
 		            <div class="col-md-6">
 		            <div class="new-collection-info">
 		                <h2 style="color:black;">New Collection !!</h2>
-		                <p style="color:black;">Pending</p>
+		                <h4 style="color:black;">With the arrival of the new season,  we are excited to introduce you to our newest addition to our store.</h4><br><br>
 		                <a href="{% url 'newcollection' %}" class="btn-default">View Now</a>
 		            </div>
 		            </div>
@@ -173,7 +195,7 @@
                             <div class="single-new-trend">
                                 <a href="{% url 'singleproduct' i.type i.id %}"><img src="{{ i.image.url }}" alt=""></a>
                                 <div class="overlay-content">
-                                    <a href="shop.html"><h2>{{ i.price }}</h2></a>
+                                    <a href="shop.html"><h2 style="color:white;"><i class="fa fa-inr" aria-hidden="true"></i>{{ i.price }}</h2></a>
                                     <a href="shop.html" class="btn-small">Now</a>
                                     <div class="product-action">
                                         <!--<ul>
@@ -201,6 +223,7 @@
                         {% endfor %}
 
                     </div>
+                    <i style="text-align: center;width: 100%;" class="fa fa-ellipsis-h fa-3x" aria-hidden="true"></i>
                 </div>
             </div>
         </div>

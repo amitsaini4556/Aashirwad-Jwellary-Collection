@@ -1,12 +1,5 @@
 /*-----------------------------------------------------------------------------------
 
-    Template Name: taj-ecommerce-bootstrap-template
-    Template URI:
-    Description: This is html5 template
-    Author: BootExperts
-    Author URI:
-    Version: 1.0
-
 -----------------------------------------------------------------------------------
 
     CSS INDEX
@@ -180,6 +173,7 @@ body {
   background: #ffffff none repeat scroll 0 0;
   padding: 25px 0;
   padding-bottom:0px;
+  padding-top:0px;
 }
 .mainmenu nav ul li {
   display: inline-block;
@@ -442,7 +436,7 @@ button.price-offer {
 /*  6.	Section CSS
 /*----------------------------------------*/
 .section-title::after {
-  background: rgba(0, 0, 0, 0) url("https://d29u17ylf1ylz9.cloudfront.net/taj-preview/taj/img/title.png") no-repeat scroll 0 0;
+  background: rgba(0, 0, 0, 0) url("") no-repeat scroll 0 0;
   content: "";
   height: 18px;
   margin-left: -195px;
@@ -729,7 +723,7 @@ button.price-offer {
 /*----------------------------------------*/
 /*  11.	Testimonial CSS
 /*----------------------------------------*/
-.testimonial-area{background: rgba(0, 0, 0, 0) url("https://d29u17ylf1ylz9.cloudfront.net/taj-preview/taj/img/testimonial/testimonial-bg.jpg") no-repeat fixed center center / cover ;}
+.testimonial-area{background: rgba(0, 0, 0, 0) url("") no-repeat fixed center center / cover ;}
 .testimonial-text h2 {
   font-size: 24px;
   font-weight: 700;
@@ -1048,7 +1042,7 @@ h2.footer-w-title {
   padding-top: 100px;
 }
 .breadcrumbs-area2 {
-  background: rgba(0, 0, 0, 0) url("https://d29u17ylf1ylz9.cloudfront.net/taj-preview/taj/img/shop/top-side-bar.jpg") no-repeat scroll center center;
+  background: rgba(0, 0, 0, 0) url("") no-repeat scroll center center;
   color: #fefefe;
   padding: 140px 0;
   position: relative;
@@ -1291,7 +1285,7 @@ aside.widget-image {
 .show-label select {
   -moz-appearance: none;
   -moz-user-select: none;
-  background: #fbfbfb url("https://d29u17ylf1ylz9.cloudfront.net/taj-preview/taj/img/shop/down.png") no-repeat scroll right center;
+  background: #fbfbfb url("") no-repeat scroll right center;
   border: medium none;
   color: #9c9b9b;
   cursor: pointer;
@@ -2054,7 +2048,7 @@ a.cart-btn i {
 .shop-select select {
   -moz-appearance: none;
   -moz-user-select: none;
-  background: #fbfbfb url("https://d29u17ylf1ylz9.cloudfront.net/taj-preview/taj/img/select-icon.png") no-repeat scroll right center;
+  background: #fbfbfb url("") no-repeat scroll right center;
   border-color: #dddddd -moz-use-text-color #dddddd #dddddd;
   border-style: solid none solid solid;
   border-width: 1px medium 1px 1px;

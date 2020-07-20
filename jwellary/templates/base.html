@@ -7,15 +7,15 @@
 <meta property="og:url"           content="{{ request.build_absolute_uri }}" />
 <meta property="og:type"          content="website" />
 <meta property="og:title"         content="Latest Jewellary Collection " />
-<meta property="og:description"   content={{ obj.summary }} />
-<meta property="og:image"         content=""/>
+<meta property="og:description"   content="" />
+<meta property="og:image"         content="{{ image_url }}"/>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Latest Jwellary Collection</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
+    <link rel="shortcut icon" type="image/jpeg" href="{% static 'img/icon.jpeg' %}">
 
     <link href='https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700' rel='stylesheet' type='text/css'>
 
@@ -209,8 +209,7 @@ clear: both;
                     <div class="row">
                         <div class="col-md-3 col-sm-10 col-xs-8">
                             <div class="header-logo">
-                                <a href="index.html">
-                                   <!--<h1 align="center" style="    color: #189d88; text-shadow: 2px 2px 3px #02fb98;"><b>AASHIRWAD</b><br><span style="    color: black; text-shadow:none;"><h4>JEWELLARYCOLLECTION</h4></span></h1>-->
+                                <a href="{% url 'home' %}">
                                    <img style="width:400% !important;" src="{% static 'img/logo350.png' %}">
                                 </a>
                             </div>
@@ -218,23 +217,17 @@ clear: both;
                         <div class="col-md-9 col-sm-2 hidden-xs">
                             <div class="mainmenu text-center">
                                 <nav>
-                                    <ul id="nav">
+                                    <ul style="padding-top:25px;" id="nav">
                                         <li><a href="{% url 'home' %}"><b>HOME</b></a></li>
                                         <li><a><b>COLLECTION</b></a>
                                             <ul class="sub-menu">
                                             <form  action="index.html" method="post">
-
-
-                                                <!--<li><a href="{% url 'rings' %}"><label for="rings">Rings</label><br>-->
-                                                <li><a href="{% url 'neckless' %}"><label for="rings">Necklace</label><br>
-                                                <li><a href="{% url 'bracelets' %}"><label for="rings">Bracelets</label></a></li>
-                                                <li><a href="{% url 'earings' %}"><label for="rings">Earings</label></a></li>
-                                                <li><a href="{% url 'start99' %}"><label for="rings">Start @99</label></a></li>
-                                                <!--<li><a href="{% url 'jewellary' %}"><label for="rings">Jewellary Sets</label></a></li>-->
+                                                <a style="pointer:cursor;display:block;" href="{% url 'necklace' %}"><strong>Necklace</strong></a><br><br>
+                                                <a style="pointer:cursor;display:block;" href="{% url 'bracelets' %}"><strong>Bracelets</strong></a><br><br>
+                                                <a style="pointer:cursor;display:block;" href="{% url 'earings' %}"><strong>Earings</strong></a><br><br>
+                                                <a style="pointer:cursor;display:block;" href="{% url 'start99' %}"><strong>Start @99</strong></a><br><br>
+                                                <a style="pointer:cursor;display:block;" href="{% url 'newcollection' %}"><strong>New Collection</strong></a><br><br>
                                               </form>
-
-
-
                                             </ul>
                                         </li>
                                         <li><a href="{% url 'about' %}"><b>ABOUT</b></a></li>
@@ -319,21 +312,21 @@ clear: both;
 									<li><a href="#">Collection</a>
 										<ul>
 											<!--<li><a href="{% url 'rings' %}"><label for="rings">Rings</a></li>-->
-											<li><a href="{% url 'neckless' %}">Necklace</a></li>
+											<li><a href="{% url 'necklace' %}">Necklace</a></li>
 											<li><a href="{% url 'bracelets' %}">Bracelets</a></li>
 											<li><a href="{% url 'earings' %}">Earings</a></li>
 											<li><a href="{% url 'start99' %}">Start @99</a></li>
-                                            <!--<li><a href="{% url 'jewellary' %}">Jewellary Set</a></li>-->
-											<!--<li><a href="checkout.html">Checkout Page</a></li>
+											<li><a href="{% url 'newcollection' %}">New Collection</a></li>
+										</ul>
+									</li>
+                                    <li><a href="{% url 'about' %}">About</a></li>
+                                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                                    	<!--<li><a href="checkout.html">Checkout Page</a></li>
 											<li><a href="contact.html">Contact Page</a></li>
 											<li><a href="login.html">Login</a></li>
 											<li><a href="my-account.html">My Account</a></li>
 											<li><a href="shop.html">Shop Page</a></li>
 											<li><a href="wishlist.html">Wishlist</a></li>-->
-										</ul>
-									</li>
-                                    <li><a href="{% url 'about' %}">About</a></li>
-                                    <li><a href="{% url 'contact' %}">Contact</a></li>
 								</ul>
 							</nav>
 						</div>
@@ -351,23 +344,6 @@ clear: both;
 
 
     {% endblock %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     <div class="footer-top-area">
@@ -406,37 +382,49 @@ clear: both;
                         <h2 class="footer-w-title">VIEW MORE</h2>
                         <ul style="list-style-type:disc;" class="footer-list">
                             <a href="{% url 'earings' %}">>>&nbspEarings</a><br>
-                            <a href="{% url 'jewellary' %}">>>&nbspNecklace</a><br>
+                            <a href="{% url 'necklace' %}">>>&nbspNecklace</a><br>
                             <a href="{% url 'bracelets' %}">>>&nbspBracelets</a><br>
                             <a href="{% url 'bracelets' %}">>>&nbspKadas</a>
 
                         </ul>
                     </div>
                 </div>
-                 <!--<div class="col-md-3 col-sm-4">
-                     <div class="footer-widget">
-                         <h2 class="footer-w-title">MY ACCOUNT</h2>
-                         <ul class="footer-list">
-                             <li><a href="#">My Account</a></li>
-                             <li><a href="#">Login</a></li>
-                             <li><a href="#">My Cart</a></li>
-                             <li><a href="#">Wishlist</a></li>
-                            <li><a href="#">Checkout</a></li>
-                         </ul>
-                     </div>
-                </div>-->
                 <!-- <div class="col-md-2 col-sm-4">
                     <div class="footer-widget">
-                            <h2 class="footer-w-title">INFORMATION</h2>
-                            <ul class="footer-list">
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Delivery Information</a></li>
-                                <li><a href="#">Privacy & Policy</a></li>
-                                <li><a href="#">Terms & Conditions</a></li>
-                                <li><a href="#">Manufactures</a></li>
-                            </ul>
-                        </div>
-                </div>-->
+                        <h2 class="footer-w-title">CUSTOMER SERVICE</h2>
+                        <ul class="footer-list">
+                            <li><a href="#">Shipping policy</a></li>
+                            <li><a href="#">Return policy</a></li>
+                            <li><a href="#">Terms and conditions</a></li>
+                            <li><a href="#">Your account</a></li>
+                            <li><a href="#">Contact us</a></li>
+                        </ul>
+                    </div>
+                </div> -->
+                <!-- <div class="col-md-2 col-sm-4">
+                    <div class="footer-widget">
+                        <h2 class="footer-w-title">MY ACCOUNT</h2>
+                        <ul class="footer-list">
+                            <li><a href="#">My Account</a></li>
+                            <li><a href="#">Login</a></li>
+                            <li><a href="#">My Cart</a></li>
+                            <li><a href="#">Wishlist</a></li>
+                            <li><a href="#">Checkout</a></li>
+                        </ul>
+                    </div>
+                </div> -->
+                <!-- <div class="col-md-2 col-sm-4">
+                    <div class="footer-widget">
+                        <h2 class="footer-w-title">INFORMATION</h2>
+                        <ul class="footer-list">
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Delivery Information</a></li>
+                            <li><a href="#">Privacy & Policy</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">Manufactures</a></li>
+                        </ul>
+                    </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -448,18 +436,13 @@ clear: both;
                     <div class="copyright">
                         <p align="center">Copyright <a target="_blank" href="{% url 'home' %}">Aashirwad Jewellary Collection</a> All rights reserved.</p>
                     </div>
-                <!-- <div class="col-md-6">
-                    <div class="paypal-img pull-right">
-                        <img src="{% static 'img/paypal.png' %}" alt="">
-                    </div>
-                </div> -->
-            </div>
+            </div
+
         </div>
     </div>
     <!-- Footer Bottom End -->
     <!--Quickview Product Start -->
-    <div id="quickview-wrapper">
-        <!-- Modal -->
+    <!--<div id="quickview-wrapper">
         <div class="modal fade" id="productModal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -499,13 +482,13 @@ clear: both;
                                         </ul>
                                     </div>
                                 </div>
-                            </div><!-- .product-info -->
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 
     <!--End of Quickview Product-->
@@ -561,5 +544,4 @@ setTimeout(beginAnim, 400);
 </script>
  </body>
 
-<!-- Mirrored from d29u17ylf1ylz9.cloudfront.net/taj-preview/taj/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Jul 2020 08:07:29 GMT -->
   </html>

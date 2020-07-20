@@ -5,7 +5,7 @@ from itertools import chain
 from operator import attrgetter
 from django.contrib import messages
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
+import random
 
 #ringcnt=ringsdatabase.objects.all().count()
 neckcnt=int(necklessdatabase.objects.all().count())
@@ -31,10 +31,10 @@ def rings(request):
     zip_list.update({'page_obj':page_obj,'function_name':'rings'})
     return render(request,'products/shop.html',zip_list)
 
-def neckless(request):
+def necklace(request):
     necklessobj=necklessdatabase.objects.all()
     page_obj=pagechanger(request,necklessobj,9)
-    zip_list.update({'page_obj':page_obj,'function_name':'neckless'})
+    zip_list.update({'page_obj':page_obj,'function_name':'necklace'})
     return render(request,'products/shop.html',zip_list)
 
 def bracelets(request):
@@ -67,13 +67,15 @@ def start99(request):
     return render(request,'products/shop.html',zip_list)
 
 def newcollection(request):
-    obj=braceletsdatabase.objects.all()
+    obj=(braceletsdatabase.objects.all().order_by('-time'))[:9]
     #obj=chain(obj,braceletsdatabase.objects.all())
-    obj=chain(obj,earingsdatabase.objects.all())
+    obj=chain(obj,(earingsdatabase.objects.all().order_by('time'))[:9])
     #obj=chain(obj,jewellarydatabase.objects.all())
-    obj=chain(obj,necklessdatabase.objects.all())
-    result_list=sorted(obj,key=attrgetter('time'))[::-1]
-    result=pagechanger(request,result_list,9)
+    obj=list(chain(obj,(necklessdatabase.objects.all().order_by('time'))[:9]))
+    #result_list=sorted(obj,key=attrgetter('time'))[::-1]
+    #result_list=result_list[:27]
+    random.shuffle(obj)
+    result=pagechanger(request,obj,9)
     zip_list.update({'page_obj':result,'function_name':'newcollection'})
     return render(request,'products/shop.html',zip_list)
 
@@ -92,14 +94,15 @@ def pagechanger(request,obj,size):
     return result
 
 def home(request):
-    obj=braceletsdatabase.objects.all()
-    obj=chain(obj,earingsdatabase.objects.all())
-    obj=list(chain(obj,necklessdatabase.objects.all()))
-    result_list=sorted(obj,key=attrgetter('time'),reverse=True)
-    newobj=result_list[:10]
+    obj=(braceletsdatabase.objects.all().order_by('-time'))[:5]
+    obj=chain(obj,(earingsdatabase.objects.all().order_by('-time'))[:5])
+    obj=list(chain(obj,(necklessdatabase.objects.all().order_by('-time'))[:5]))
+    #result_list=sorted(obj,key=attrgetter('time'),reverse=True)
+    #newobj=result_list[:10]
+    random.shuffle(obj)
     featuredobj=featuredproducts.objects.all()
     params ={
-        'newobj':newobj,
+        'newobj':obj,
         'featuredobj':featuredobj,
         }
     return render(request,'products/index.html',params)
@@ -170,7 +173,7 @@ def sortby(request,type,option):
         zip_list.update({'page_obj':page_obj,'function_name':'rings'})
         return render(request,'products/shop.html',zip_list)
 
-    elif type=="neckless":
+    elif type=="necklace":
         if option=='low-to-high':
             obj=necklessdatabase.objects.all().order_by('price')
         elif option=='high-to-low':
@@ -178,7 +181,7 @@ def sortby(request,type,option):
         else:
             obj=necklessdatabase.objects.all().order_by('time')[::-1]
         page_obj=pagechanger(request,obj,9)
-        zip_list.update({'page_obj':page_obj,'function_name':'neckless'})
+        zip_list.update({'page_obj':page_obj,'function_name':'necklace'})
         return render(request,'products/shop.html',zip_list)
 
     elif type=="bracelets":
@@ -235,16 +238,22 @@ def sortby(request,type,option):
         #res=chain(res,braceletsdatabase.objects.all())
         res=chain(res,earingsdatabase.objects.all())
         #res=chain(res,jewellarydatabase.objects.all())
-        res=chain(res,necklessdatabase.objects.all())[:27]
+        res=chain(res,necklessdatabase.objects.all())
+        result_list=sorted(res,key=attrgetter('time'))[::-1]
+        result_list=result_list[:27]
         if option=='low-to-high':
-            obj=sorted(res,key=attrgetter('price'))
+            obj=sorted(result_list,key=attrgetter('price'))
         elif option=='high-to-low':
-            obj=sorted(res,key=attrgetter('price'))[::-1]
+            obj=sorted(result_list,key=attrgetter('price'))[::-1]
         else:
-            obj=sorted(res,key=attrgetter('time'))[::-1]
+            obj=sorted(result_list,key=attrgetter('time'))[::-1]
+        obj=obj[:27]
         page_obj=pagechanger(request,obj,9)
         zip_list.update({'page_obj':page_obj,'function_name':'newcollection'})
         return render(request,'products/shop.html',zip_list)
+
+def not_found(request):
+    return render(request,'products/404.html',status=404)
 
 
 
