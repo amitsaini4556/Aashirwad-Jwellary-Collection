@@ -22,9 +22,6 @@ zip_list={
         }
 
 
-
-# Create your views here.
-
 def rings(request):
     ringsobj=ringsdatabase.objects.all()
     page_obj=pagechanger(request,ringsobj,9)
